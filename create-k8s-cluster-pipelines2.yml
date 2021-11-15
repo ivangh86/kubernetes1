@@ -13,6 +13,7 @@ steps:
     secureFile: 'azure_rsa.pub'
 
 - task: TerraformCLI@0
+  displayName: 'Terraform Init'
   inputs:
     command: 'init'
     workingDirectory: '$(System.DefaultWorkingDirectory)/configuration/iaac/azure'
@@ -24,9 +25,23 @@ steps:
     backendAzureRmStorageAccountName: 'storageacctnamexm1'
     backendAzureRmContainerName: 'storageaccntcon'
     backendAzureRmKey: 'k8.tfstate'
-    aiInstrumentationKey: 
+
 
 - task: TerraformCLI@0
+  displayName: 'Terraform Validate'
+  inputs:   
+    command: 'validate'
+    allowTelemetryCollection: true
+
+
+- task: TerraformCLI@0
+  displayName: 'Terraform plan'
+  inputs:
+    command: 'plan'
+    allowTelemetryCollection: true
+
+- task: TerraformCLI@0
+  displayName: 'Terraform apply'
   inputs:
     command: 'apply'
     workingDirectory: '$(System.DefaultWorkingDirectory)/configuration/iaac/azure'
