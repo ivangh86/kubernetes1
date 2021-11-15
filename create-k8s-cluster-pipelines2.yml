@@ -33,13 +33,6 @@ steps:
     command: 'validate'
     allowTelemetryCollection: true
 
-
-- task: TerraformCLI@0
-  displayName: 'Terraform plan'
-  inputs:
-    command: 'plan'
-    allowTelemetryCollection: true
-
 - task: TerraformCLI@0
   displayName: 'Terraform apply'
   inputs:
