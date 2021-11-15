@@ -1,4 +1,4 @@
-apiVersion: v1
+apiVersion: extensions/v1beta1
 kind: Deployment
 metadata:
   name: service-deployment
@@ -16,7 +16,7 @@ spec:
     spec:
       containers:
       - name: hello-api
-        image: ivangh86/docker101tutorial
+        image: ivangh86/helloapp1
 ---        
 apiVersion: v1
 kind: Service
