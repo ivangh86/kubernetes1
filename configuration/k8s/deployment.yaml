@@ -1,3 +1,4 @@
+apiVersion: v11
 kind: Deployment
 metadata:
   name: service-deployment
